@@ -35,8 +35,8 @@ module objects {
             // checkbounds to stop player from going outside
 
             // check right bounds
-            if (this.x >= (340 - (this.width * 0.5))) {
-                this.x = (340 - (this.width * 0.5));
+            if (this.x >= (530 - (this.width * 0.5))) {
+                this.x = (530 - (this.width * 0.5));
             }
 
             // check left bounds
