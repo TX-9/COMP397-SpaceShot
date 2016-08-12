@@ -19,14 +19,14 @@ module scenes {
             super();
         }
 
-        private _updateScoreBoard() {
+        private _updateScoreBoard() {   
             this._livesLabel.text = "Lives: " + core.lives;
             this._scoreLabel.text = "Score: " + core.score;
-           if(core.score >= core.toLevel2){
-               // this.level2_bgsound.stop();
-                core.scene = config.Scene.LEVEL2;
-                core.changeScene();
-            } 
+        //    if(core.score >= core.toLevel2){
+        //        // this.level2_bgsound.stop();
+        //         core.scene = config.Scene.LEVEL2;
+        //         core.changeScene();
+        //     } 
         }
 
         /**
@@ -34,12 +34,12 @@ module scenes {
          */
         public Start(): void {
             // space1 object
-            this._space = new objects.Space("space2");
+            this._space = new objects.Space("space1");
             this.addChild(this._space);
 
             // bg Sound
-            // this.level2_bgsound = createjs.Sound.play("level2_bgsound");
-            // this.level2_bgsound.loop = -1;
+            this.level2_bgsound = createjs.Sound.play("level2_bgsound");
+            this.level2_bgsound.loop = -1;
 
             // player object
             this._player = new objects.Player("player");
@@ -53,7 +53,7 @@ module scenes {
                 this.addChild(this._diamond[count]);
             }
             
-            // enemy2 array
+            // // enemy2 array
             this._enemy2 = new Array<objects.Enemy2>();
             for (let count = 0; count < 1; count++) {
                 this._enemy2.push(new objects.Enemy2("enemy2"));

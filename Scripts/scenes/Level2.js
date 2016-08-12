@@ -17,22 +17,22 @@ var scenes;
         Level2.prototype._updateScoreBoard = function () {
             this._livesLabel.text = "Lives: " + core.lives;
             this._scoreLabel.text = "Score: " + core.score;
-            if (core.score >= core.toLevel2) {
-                // this.level2_bgsound.stop();
-                core.scene = config.Scene.LEVEL2;
-                core.changeScene();
-            }
+            //    if(core.score >= core.toLevel2){
+            //        // this.level2_bgsound.stop();
+            //         core.scene = config.Scene.LEVEL2;
+            //         core.changeScene();
+            //     } 
         };
         /**
          *
          */
         Level2.prototype.Start = function () {
             // space1 object
-            this._space = new objects.Space("space2");
+            this._space = new objects.Space("space1");
             this.addChild(this._space);
             // bg Sound
-            // this.level2_bgsound = createjs.Sound.play("level2_bgsound");
-            // this.level2_bgsound.loop = -1;
+            this.level2_bgsound = createjs.Sound.play("level2_bgsound");
+            this.level2_bgsound.loop = -1;
             // player object
             this._player = new objects.Player("player");
             this.addChild(this._player);
@@ -42,7 +42,7 @@ var scenes;
                 this._diamond.push(new objects.Diamond("diamond"));
                 this.addChild(this._diamond[count]);
             }
-            // enemy2 array
+            // // enemy2 array
             this._enemy2 = new Array();
             for (var count = 0; count < 1; count++) {
                 this._enemy2.push(new objects.Enemy2("enemy2"));
@@ -50,8 +50,8 @@ var scenes;
             }
             // include a collision managers
             this._collision = new managers.Collision();
-            this._level1Label = new objects.Label("Level 1 ", "40px", "Consolas", "#FFFF00", 50, 5, false);
-            this.addChild(this._level1Label);
+            this._level2Label = new objects.Label("Level 2 ", "40px", "Consolas", "#FFFF00", 50, 5, false);
+            this.addChild(this._level2Label);
             // add lives and score label
             this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "Consolas", "#FB791A", 300, 5, false);
             this.addChild(this._livesLabel);
