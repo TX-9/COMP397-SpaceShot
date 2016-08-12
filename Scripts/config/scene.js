@@ -6,6 +6,7 @@ var config;
         Scene.MENU = 0;
         Scene.RULE = 1;
         Scene.LEVEL1 = 2;
+        Scene.LEVEL2 = 3;
         Scene.OVER = 5;
         return Scene;
     }());

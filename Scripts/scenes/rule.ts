@@ -1,7 +1,7 @@
 module scenes {
     export class Rule extends objects.Scene {
         //  PRIVATE INSTANCE VARIABLES
-        private _ground: objects.Space1;
+        private _space: objects.Space;
         private _menuLabel: objects.Label;
         private _startButton: objects.Button;
         private _ruleButton: objects.Button;
@@ -19,9 +19,9 @@ module scenes {
          * 
          */
         public Start(): void {
-            // Add Space1 Background
-            this._ground = new objects.Space1("space1");
-            this.addChild(this._ground);
+            // Add Space Background
+            this._space = new objects.Space("space1");
+            this.addChild(this._space);
 
             // Add instruction image
             var ruleImg = new createjs.Bitmap(core.assets.getResult("rules"));

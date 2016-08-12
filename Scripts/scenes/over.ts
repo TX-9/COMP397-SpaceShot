@@ -1,7 +1,7 @@
 module scenes {
     export class Over extends objects.Scene {
         //  PRIVATE INSTANCE VARIABLES
-        private _ground:objects.Space1;
+        private _space:objects.Space;
         private _gameOverLabel: objects.Label;
         private _restartButton: objects.Button;
         private _finalScoreLabel: objects.Label;
@@ -18,9 +18,9 @@ module scenes {
          * 
          */
         public Start():void {
-            // Add Space1 Background
-            this._ground = new objects.Space1("space1");
-            this.addChild(this._ground);
+            // Add Space Background
+            this._space = new objects.Space("space1");
+            this.addChild(this._space);
 
             // Add Menu Label
             this._gameOverLabel = new objects.Label(

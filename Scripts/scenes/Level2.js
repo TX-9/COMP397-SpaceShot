@@ -5,20 +5,20 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var scenes;
 (function (scenes) {
-    var Level1 = (function (_super) {
-        __extends(Level1, _super);
+    var Level2 = (function (_super) {
+        __extends(Level2, _super);
         /**
          * Creates an instance of Menu.
          *
          */
-        function Level1() {
+        function Level2() {
             _super.call(this);
         }
-        Level1.prototype._updateScoreBoard = function () {
+        Level2.prototype._updateScoreBoard = function () {
             this._livesLabel.text = "Lives: " + core.lives;
             this._scoreLabel.text = "Score: " + core.score;
             if (core.score >= core.toLevel2) {
-                this.level1_bgsound.stop();
+                // this.level2_bgsound.stop();
                 core.scene = config.Scene.LEVEL2;
                 core.changeScene();
             }
@@ -26,26 +26,27 @@ var scenes;
         /**
          *
          */
-        Level1.prototype.Start = function () {
+        Level2.prototype.Start = function () {
             // space1 object
-            this._space = new objects.Space("space1");
+            this._space = new objects.Space("space2");
             this.addChild(this._space);
+            // bg Sound
+            // this.level2_bgsound = createjs.Sound.play("level2_bgsound");
+            // this.level2_bgsound.loop = -1;
+            // player object
+            this._player = new objects.Player("player");
+            this.addChild(this._player);
             // diamond array
             this._diamond = new Array();
             for (var count = 0; count < 2; count++) {
                 this._diamond.push(new objects.Diamond("diamond"));
                 this.addChild(this._diamond[count]);
             }
-            // player object
-            this._player = new objects.Player("player");
-            this.addChild(this._player);
-            this.level1_bgsound = createjs.Sound.play("level1_bgsound");
-            this.level1_bgsound.loop = -1;
-            // enemy1 array
-            this._enemy1 = new Array();
-            for (var count = 0; count < 3; count++) {
-                this._enemy1.push(new objects.Enemy1("enemy1"));
-                this.addChild(this._enemy1[count]);
+            // enemy2 array
+            this._enemy2 = new Array();
+            for (var count = 0; count < 1; count++) {
+                this._enemy2.push(new objects.Enemy2("enemy2"));
+                this.addChild(this._enemy2[count]);
             }
             // include a collision managers
             this._collision = new managers.Collision();
@@ -59,35 +60,34 @@ var scenes;
             // add this scene to the global scene container
             core.stage.addChild(this);
         };
-        Level1.prototype.Update = function () {
+        Level2.prototype.Update = function () {
             var _this = this;
             this._space.update();
             this._player.update();
-            // update each enemy1
             this._diamond.forEach(function (diamond) {
                 diamond.update();
                 _this._collision.check(_this._player, diamond);
             });
-            // update each enemy1
-            this._enemy1.forEach(function (enemy1) {
-                enemy1.update();
-                _this._collision.check(_this._player, enemy1);
+            //update each enemy2
+            this._enemy2.forEach(function (enemy2) {
+                enemy2.update();
+                _this._collision.check(_this._player, enemy2);
             });
             this._updateScoreBoard();
             if (core.lives < 1) {
-                this.level1_bgsound.stop();
+                //this.level2_bgsound.stop();
                 core.scene = config.Scene.OVER;
                 core.changeScene();
             }
         };
         // EVENT HANDLERS ++++++++++++++++
-        Level1.prototype._startButtonClick = function (event) {
+        Level2.prototype._startButtonClick = function (event) {
             // Switch the scene
             core.scene = config.Scene.OVER;
             core.changeScene();
         };
-        return Level1;
+        return Level2;
     }(objects.Scene));
-    scenes.Level1 = Level1;
+    scenes.Level2 = Level2;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=level1.js.map
+//# sourceMappingURL=level2.js.map

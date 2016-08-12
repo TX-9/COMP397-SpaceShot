@@ -15,12 +15,12 @@ var managers;
                     other.isColliding = true;
                     // if player collides with enemy1
                     if (other.name === "enemy1") {
-                        createjs.Sound.play("dung_sound");
+                        createjs.Sound.play("enemy1_sound");
                         core.lives -= 1;
                     }
                     // if player collides with diamond
                     if (other.name === "diamond") {
-                        createjs.Sound.play("gold_sound");
+                        createjs.Sound.play("diamond_sound");
                         core.score += 100;
                     }
                 }

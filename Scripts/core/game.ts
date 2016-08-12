@@ -37,6 +37,10 @@ namespace core {
     let menu: scenes.Menu;
     let over: scenes.Over;
     let level1: scenes.Level1;
+    let level2: scenes.Level2;
+    export let toLevel2: number = 300;
+    export let toLevel3: number = 600;
+    
     let rule: scenes.Rule;
 
 
@@ -47,11 +51,16 @@ namespace core {
         { id: "startButton", src: "../../Assets/images/startButton.png" },
         { id: "restartButton", src: "../../Assets/images/restartButton.png" },
         { id: "space1", src: "../../Assets/images/space1.gif" },
+        { id: "space2", src: "../../Assets/images/space2.gif" },
         { id: "diamond", src: "../../Assets/images/diamond.png" },
         { id: "player", src: "../../Assets/images/player.png" },
         { id: "enemy1", src: "../../Assets/images/enemy1.png" },
-        { id: "dung_sound", src: "../../Assets/audio/dung_sound.wav" },
-        { id: "gold_sound", src: "../../Assets/audio/gold_sound.wav" }
+        { id: "enemy2", src: "../../Assets/images/enemy2.png" },
+        { id: "enemy1_sound", src: "../../Assets/audio/enemy1_sound.wav" },
+        { id: "diamond_sound", src: "../../Assets/audio/diamond_sound.wav" },
+        { id: "level1_bgsound", src: "../../Assets/audio/level1_bgsound.wav" },
+        { id: "level2_bgsound", src: "../../Assets/audio/level2_bgsound.wav" }
+        
     ];
 
     /**
@@ -131,6 +140,12 @@ namespace core {
                 stage.removeAllChildren();
                 level1 = new scenes.Level1();
                 currentScene = level1;
+                break;
+             // Show the LEVEL1 Scene
+            case config.Scene.LEVEL2:
+                stage.removeAllChildren();
+                level2 = new scenes.Level2();
+                currentScene = level2;
                 break;
             // Show the GAME OVER Scene
             case config.Scene.OVER:

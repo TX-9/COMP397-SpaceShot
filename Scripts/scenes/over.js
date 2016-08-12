@@ -18,9 +18,9 @@ var scenes;
          *
          */
         Over.prototype.Start = function () {
-            // Add Space1 Background
-            this._ground = new objects.Space1("space1");
-            this.addChild(this._ground);
+            // Add Space Background
+            this._space = new objects.Space("space1");
+            this.addChild(this._space);
             // Add Menu Label
             this._gameOverLabel = new objects.Label("GAME OVER", "60px", "Consolas", "#FDFDFD", 445, 280, true);
             this.addChild(this._gameOverLabel);
