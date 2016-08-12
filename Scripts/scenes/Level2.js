@@ -28,7 +28,7 @@ var scenes;
          */
         Level2.prototype.Start = function () {
             // space1 object
-            this._space = new objects.Space("space1");
+            this._space = new objects.Space("space2");
             this.addChild(this._space);
             // bg Sound
             this._level2_bgsound = createjs.Sound.play("level2_bgsound");

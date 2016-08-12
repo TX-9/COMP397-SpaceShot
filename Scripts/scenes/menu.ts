@@ -24,13 +24,13 @@ module scenes {
 
             // Add Menu Label
             this._menuLabel = new objects.Label(
-                "SpaceShot", "60px", "Consolas", "#FF0033",
+                "SpaceShot", "80px", "Consolas", "#FF0033",
                 445, 280, true
             );
             this.addChild(this._menuLabel);
 
             // add the start button
-            this._startButton = new objects.Button("startButton", 400 , 515, true)
+            this._startButton = new objects.Button("startButton", 300 , 515, true)
             this.addChild(this._startButton);
 
             // Start button event listener

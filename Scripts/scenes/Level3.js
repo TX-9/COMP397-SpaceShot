@@ -26,7 +26,7 @@ var scenes;
             this._space = new objects.Space("space3");
             this.addChild(this._space);
             // bg Sound
-            this._level3_bgsound = createjs.Sound.play("_level2_bgsound");
+            this._level3_bgsound = createjs.Sound.play("level3_bgsound");
             this._level3_bgsound.loop = -1;
             // player object
             this._player = new objects.Player("player");
@@ -37,10 +37,10 @@ var scenes;
                 this._diamond.push(new objects.Diamond("diamond"));
                 this.addChild(this._diamond[count]);
             }
-            // // enemy2 array
+            // // enemy3 array
             this._enemy3 = new Array();
             for (var count = 0; count < 1; count++) {
-                this._enemy3.push(new objects.Enemy2("enemy3"));
+                this._enemy3.push(new objects.Enemy3("enemy3"));
                 this.addChild(this._enemy3[count]);
             }
             // include a collision managers

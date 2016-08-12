@@ -34,7 +34,7 @@ module scenes {
          */
         public Start(): void {
             // space1 object
-            this._space = new objects.Space("space1");
+            this._space = new objects.Space("space2");
             this.addChild(this._space);
 
             // bg Sound

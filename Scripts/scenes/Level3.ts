@@ -4,7 +4,7 @@ module scenes {
         private _space: objects.Space;
         private _diamond: objects.Diamond[];
         private _player: objects.Player;
-        private _enemy3: objects.Enemy2[];
+        private _enemy3: objects.Enemy3[];
         private _collision: managers.Collision;
         private _scoreLabel: objects.Label;
         private _livesLabel: objects.Label;
@@ -34,7 +34,7 @@ module scenes {
             this.addChild(this._space);
 
             // bg Sound
-            this._level3_bgsound = createjs.Sound.play("_level2_bgsound");
+            this._level3_bgsound = createjs.Sound.play("level3_bgsound");
             this._level3_bgsound.loop = -1;
 
             // player object
@@ -49,10 +49,10 @@ module scenes {
                 this.addChild(this._diamond[count]);
             }
             
-            // // enemy2 array
-            this._enemy3 = new Array<objects.Enemy2>();
+            // // enemy3 array
+            this._enemy3 = new Array<objects.Enemy3>();
             for (let count = 0; count < 1; count++) {
-                this._enemy3.push(new objects.Enemy2("enemy3"));
+                this._enemy3.push(new objects.Enemy3("enemy3"));
                 this.addChild(this._enemy3[count]);
             }
 

@@ -23,6 +23,7 @@ var core;
     var over;
     var level1;
     var level2;
+    var level3;
     core.toLevel2 = 300;
     core.toLevel3 = 600;
     var rule;
@@ -34,6 +35,7 @@ var core;
         { id: "restartButton", src: "../../Assets/images/restartButton.png" },
         { id: "space1", src: "../../Assets/images/space1.gif" },
         { id: "space2", src: "../../Assets/images/space2.gif" },
+        { id: "space3", src: "../../Assets/images/space3.gif" },
         { id: "diamond", src: "../../Assets/images/diamond.png" },
         { id: "player", src: "../../Assets/images/player.png" },
         { id: "enemy1", src: "../../Assets/images/enemy1.png" },
@@ -42,7 +44,8 @@ var core;
         { id: "enemy1_sound", src: "../../Assets/audio/enemy1_sound.wav" },
         { id: "diamond_sound", src: "../../Assets/audio/diamond_sound.wav" },
         { id: "level1_bgsound", src: "../../Assets/audio/level1_bgsound.wav" },
-        { id: "level2_bgsound", src: "../../Assets/audio/level2_bgsound.wav" }
+        { id: "level2_bgsound", src: "../../Assets/audio/level2_bgsound.wav" },
+        { id: "level3_bgsound", src: "../../Assets/audio/level3_bgsound.wav" }
     ];
     /**
      * This method preloads assets for the game
@@ -112,11 +115,17 @@ var core;
                 level1 = new scenes.Level1();
                 currentScene = level1;
                 break;
-            // Show the LEVEL1 Scene
+            // Show the LEVEL2 Scene
             case config.Scene.LEVEL2:
                 core.stage.removeAllChildren();
                 level2 = new scenes.Level2();
                 currentScene = level2;
+                break;
+            // Show the LEVEL3 Scene
+            case config.Scene.LEVEL3:
+                core.stage.removeAllChildren();
+                level3 = new scenes.Level3();
+                currentScene = level3;
                 break;
             // Show the GAME OVER Scene
             case config.Scene.OVER:
