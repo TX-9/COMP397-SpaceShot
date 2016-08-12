@@ -14,6 +14,8 @@ var objects;
      */
     var Player = (function (_super) {
         __extends(Player, _super);
+        // PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++
+        //static isActivate: boolean = false;
         // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++
         /**
@@ -76,14 +78,14 @@ var objects;
         Player.prototype.update = function () {
             // player to follow mouse
             this.position = new objects.Vector2(this.x, this.y);
-            if (objects.Player.isActivate) {
-                this.y = core.stage.mouseY;
-                this.x = core.stage.mouseX;
-            }
+            // if (objects.Player.isActivate) {
+            //     this.y = core.stage.mouseY;
+            //     this.x = core.stage.mouseX;
+            // }
+            this.y = core.stage.mouseY;
+            this.x = core.stage.mouseX;
             this._checkBounds();
         };
-        // PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++
-        Player.isActivate = false;
         return Player;
     }(objects.GameObject));
     objects.Player = Player;

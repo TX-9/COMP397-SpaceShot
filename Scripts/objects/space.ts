@@ -77,10 +77,10 @@ module objects {
             
             this._checkBounds();
            
-            if (this.x < -200) {
-               objects.Player.isActivate = true;
+            // if (this.x < -200) {
+            //    objects.Player.isActivate = true;
 
-            }
+            // }
         }
     }
 }

@@ -8,7 +8,7 @@ module objects {
      */
     export class Player extends objects.GameObject {
         // PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++
-        static isActivate: boolean = false;
+        //static isActivate: boolean = false;
         // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++
 
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++
@@ -82,11 +82,12 @@ module objects {
             // player to follow mouse
             this.position = new Vector2(this.x, this.y);
 
-            if (objects.Player.isActivate) {
-                this.y = core.stage.mouseY;
-                this.x = core.stage.mouseX;
-            }
-
+            // if (objects.Player.isActivate) {
+            //     this.y = core.stage.mouseY;
+            //     this.x = core.stage.mouseX;
+            // }
+            this.y = core.stage.mouseY;
+            this.x = core.stage.mouseX;
             this._checkBounds();
         }
     }

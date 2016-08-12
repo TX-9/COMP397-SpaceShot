@@ -5,34 +5,29 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var scenes;
 (function (scenes) {
-    var Level2 = (function (_super) {
-        __extends(Level2, _super);
+    var Level3 = (function (_super) {
+        __extends(Level3, _super);
         /**
          * Creates an instance of Menu.
          *
          */
-        function Level2() {
+        function Level3() {
             _super.call(this);
         }
-        Level2.prototype._updateScoreBoard = function () {
+        Level3.prototype._updateScoreBoard = function () {
             this._livesLabel.text = "Lives: " + core.lives;
             this._scoreLabel.text = "Score: " + core.score;
-            if (core.score >= core.toLevel3) {
-                this._level2_bgsound.stop();
-                core.scene = config.Scene.LEVEL3;
-                core.changeScene();
-            }
         };
         /**
          *
          */
-        Level2.prototype.Start = function () {
+        Level3.prototype.Start = function () {
             // space1 object
-            this._space = new objects.Space("space1");
+            this._space = new objects.Space("space3");
             this.addChild(this._space);
             // bg Sound
-            this._level2_bgsound = createjs.Sound.play("level2_bgsound");
-            this._level2_bgsound.loop = -1;
+            this._level3_bgsound = createjs.Sound.play("_level2_bgsound");
+            this._level3_bgsound.loop = -1;
             // player object
             this._player = new objects.Player("player");
             this.addChild(this._player);
@@ -43,15 +38,15 @@ var scenes;
                 this.addChild(this._diamond[count]);
             }
             // // enemy2 array
-            this._enemy2 = new Array();
+            this._enemy3 = new Array();
             for (var count = 0; count < 1; count++) {
-                this._enemy2.push(new objects.Enemy2("enemy2"));
-                this.addChild(this._enemy2[count]);
+                this._enemy3.push(new objects.Enemy2("enemy3"));
+                this.addChild(this._enemy3[count]);
             }
             // include a collision managers
             this._collision = new managers.Collision();
-            this._level2Label = new objects.Label("Level 2 ", "40px", "Consolas", "#FFFF00", 50, 5, false);
-            this.addChild(this._level2Label);
+            this._level3Label = new objects.Label("Level 3 ", "40px", "Consolas", "#FFFF00", 50, 5, false);
+            this.addChild(this._level3Label);
             // add lives and score label
             this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "Consolas", "#FB791A", 300, 5, false);
             this.addChild(this._livesLabel);
@@ -60,7 +55,7 @@ var scenes;
             // add this scene to the global scene container
             core.stage.addChild(this);
         };
-        Level2.prototype.Update = function () {
+        Level3.prototype.Update = function () {
             var _this = this;
             this._space.update();
             this._player.update();
@@ -69,25 +64,25 @@ var scenes;
                 _this._collision.check(_this._player, diamond);
             });
             //update each enemy2
-            this._enemy2.forEach(function (enemy2) {
+            this._enemy3.forEach(function (enemy2) {
                 enemy2.update();
                 _this._collision.check(_this._player, enemy2);
             });
             this._updateScoreBoard();
             if (core.lives < 1) {
-                this._level2_bgsound.stop();
+                this._level3_bgsound.stop();
                 core.scene = config.Scene.OVER;
                 core.changeScene();
             }
         };
         // EVENT HANDLERS ++++++++++++++++
-        Level2.prototype._startButtonClick = function (event) {
+        Level3.prototype._startButtonClick = function (event) {
             // Switch the scene
             core.scene = config.Scene.OVER;
             core.changeScene();
         };
-        return Level2;
+        return Level3;
     }(objects.Scene));
-    scenes.Level2 = Level2;
+    scenes.Level3 = Level3;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=level2.js.map
+//# sourceMappingURL=level3.js.map

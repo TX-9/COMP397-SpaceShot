@@ -72,9 +72,9 @@ var objects;
         Space.prototype.update = function () {
             this.x -= this._dx;
             this._checkBounds();
-            if (this.x < -200) {
-                objects.Player.isActivate = true;
-            }
+            // if (this.x < -200) {
+            //    objects.Player.isActivate = true;
+            // }
         };
         return Space;
     }(createjs.Bitmap));

@@ -1,15 +1,15 @@
 module scenes {
-    export class Level2 extends objects.Scene {
+    export class Level3 extends objects.Scene {
         //  PRIVATE INSTANCE VARIABLES
         private _space: objects.Space;
         private _diamond: objects.Diamond[];
         private _player: objects.Player;
-        private _enemy2: objects.Enemy2[];
+        private _enemy3: objects.Enemy2[];
         private _collision: managers.Collision;
         private _scoreLabel: objects.Label;
         private _livesLabel: objects.Label;
-        private _level2Label: objects.Label;
-        private _level2_bgsound: createjs.AbstractSoundInstance;
+        private _level3Label: objects.Label;
+        private _level3_bgsound: createjs.AbstractSoundInstance;
 
         /**
          * Creates an instance of Menu.
@@ -22,11 +22,7 @@ module scenes {
         private _updateScoreBoard() {   
             this._livesLabel.text = "Lives: " + core.lives;
             this._scoreLabel.text = "Score: " + core.score;
-           if(core.score >= core.toLevel3){
-                this._level2_bgsound.stop();
-                core.scene = config.Scene.LEVEL3;
-                core.changeScene();
-            } 
+      
         }
 
         /**
@@ -34,12 +30,12 @@ module scenes {
          */
         public Start(): void {
             // space1 object
-            this._space = new objects.Space("space1");
+            this._space = new objects.Space("space3");
             this.addChild(this._space);
 
             // bg Sound
-            this._level2_bgsound = createjs.Sound.play("level2_bgsound");
-            this._level2_bgsound.loop = -1;
+            this._level3_bgsound = createjs.Sound.play("_level2_bgsound");
+            this._level3_bgsound.loop = -1;
 
             // player object
             this._player = new objects.Player("player");
@@ -54,17 +50,17 @@ module scenes {
             }
             
             // // enemy2 array
-            this._enemy2 = new Array<objects.Enemy2>();
+            this._enemy3 = new Array<objects.Enemy2>();
             for (let count = 0; count < 1; count++) {
-                this._enemy2.push(new objects.Enemy2("enemy2"));
-                this.addChild(this._enemy2[count]);
+                this._enemy3.push(new objects.Enemy2("enemy3"));
+                this.addChild(this._enemy3[count]);
             }
 
             // include a collision managers
             this._collision = new managers.Collision();
 
-            this._level2Label = new objects.Label("Level 2 ", "40px", "Consolas", "#FFFF00", 50, 5, false);
-            this.addChild(this._level2Label);
+            this._level3Label = new objects.Label("Level 3 ", "40px", "Consolas", "#FFFF00", 50, 5, false);
+            this.addChild(this._level3Label);
 
             // add lives and score label
             this._livesLabel = new objects.Label("Lives: " + core.lives, "40px", "Consolas", "#FB791A", 300, 5, false);
@@ -88,7 +84,7 @@ module scenes {
              });
 
              //update each enemy2
-            this._enemy2.forEach(enemy2 => {
+            this._enemy3.forEach(enemy2 => {
                 enemy2.update();
                 this._collision.check(this._player, enemy2);
             });
@@ -96,7 +92,7 @@ module scenes {
             this._updateScoreBoard();
 
             if (core.lives < 1) {
-                this._level2_bgsound.stop();
+                this._level3_bgsound.stop();
                 core.scene = config.Scene.OVER;
                 core.changeScene();
             }

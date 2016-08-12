@@ -38,6 +38,7 @@ var core;
         { id: "player", src: "../../Assets/images/player.png" },
         { id: "enemy1", src: "../../Assets/images/enemy1.png" },
         { id: "enemy2", src: "../../Assets/images/enemy2.png" },
+        { id: "enemy3", src: "../../Assets/images/enemy3.png" },
         { id: "enemy1_sound", src: "../../Assets/audio/enemy1_sound.wav" },
         { id: "diamond_sound", src: "../../Assets/audio/diamond_sound.wav" },
         { id: "level1_bgsound", src: "../../Assets/audio/level1_bgsound.wav" },

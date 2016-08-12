@@ -7,6 +7,7 @@ var config;
         Scene.RULE = 1;
         Scene.LEVEL1 = 2;
         Scene.LEVEL2 = 3;
+        Scene.LEVEL3 = 4;
         Scene.OVER = 5;
         return Scene;
     }());
