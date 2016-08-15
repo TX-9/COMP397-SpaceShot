@@ -22,7 +22,7 @@ var objects;
          * @param {string} imageString
          */
         function GameObject(imageString) {
-            _super.call(this, core.assets.getResult(imageString));
+            _super.call(this, core.textureAtlas, imageString);
             this._initialize(imageString);
             this.start();
         }
@@ -120,8 +120,23 @@ var objects;
         */
         GameObject.prototype.update = function () {
         };
+        GameObject.prototype.Reset = function () {
+        };
+        GameObject.prototype.isDestroyed = function () {
+            return false;
+        };
+        GameObject.prototype.destroy = function () {
+        };
+        GameObject.prototype.ResetFrameRate = function (newFrameRate) {
+        };
+        GameObject.prototype.getValidity = function () {
+            return false;
+        };
+        GameObject.prototype.damage = function () {
+            return false;
+        };
         return GameObject;
-    }(createjs.Bitmap));
+    }(createjs.Sprite));
     objects.GameObject = GameObject;
 })(objects || (objects = {}));
 //# sourceMappingURL=gameobject.js.map

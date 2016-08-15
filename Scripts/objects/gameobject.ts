@@ -6,7 +6,7 @@ module objects {
      * @class GameObject
      * @extends {createjs.Bitmap}
      */
-    export abstract class GameObject extends createjs.Bitmap {
+    export abstract class GameObject extends createjs.Sprite {
          // PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++
         private _width:number;
         private _height:number;
@@ -73,7 +73,7 @@ module objects {
          * @param {string} imageString
          */
         constructor(imageString:string) {
-            super(core.assets.getResult(imageString))
+            super(core.textureAtlas,imageString)
             
             this._initialize(imageString);
 
@@ -114,6 +114,32 @@ module objects {
            
 
         }
+
+        public Reset():void{
+            
+        }
+
+        public isDestroyed():boolean{
+            return false;
+        }
+
+        public destroy():void{
+        }
+
+        public ResetFrameRate(newFrameRate:number)
+        {
+        }
+
+        public getValidity():boolean{
+            return false;
+        }
+
+        public damage():boolean{
+            return false;
+
+        }
+        
+        
 
     }
 }

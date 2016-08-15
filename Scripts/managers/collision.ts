@@ -13,24 +13,81 @@ module managers {
 
         }
 
-        public check(player: objects.GameObject, other: objects.GameObject) {
+        public check(prime: objects.GameObject, other: objects.GameObject, newFrameRate: number = 0) {
             //check to see if object is colliding
-            if (objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) {
+            if (objects.Vector2.distance(prime.position, other.position) < (prime.halfHeight + other.halfHeight)) {
                 if (!other.isColliding) {
                     other.isColliding = true;
 
-                    // if player collides with enemy1
+                    // if prime object collides with enemy1
                     if (other.name === "enemy1") {
                         createjs.Sound.play("enemy1_sound");
                         core.lives -= 1;
                     }
 
-                    // if player collides with diamond
+                    if (other.name === "enemy2") {
+                        createjs.Sound.play("enemy1_sound");
+                        core.lives -= 1;
+                    }
+
+                    if (other.name === "enemy3") {
+                        createjs.Sound.play("enemy1_sound");
+                        core.lives -= 1;
+                    }
+
+                    if (other.name === "enemy2_bullet") {
+                        createjs.Sound.play("enemy1_sound");
+                        core.lives -= 1;
+                    }
+
+                    if (other.name === "enemy3_bullet") {
+                        //prime.damage();
+                        if (!prime.damage() && !prime.getValidity()) {
+                            if (prime.name == "player") {
+                                createjs.Sound.play("enemy1_sound");
+                                core.lives -= 1;
+
+                            }
+
+
+                        }
+
+                    }
+
+                    // if prime collides with diamond
                     if (other.name === "diamond") {
                         createjs.Sound.play("diamond_sound");
                         core.score += 100;
+                        other.visible = false;
                     }
-                    
+
+                    //  if prime collides with bullet
+                    if (other.name === "player_bullet") {
+                        createjs.Sound.play("diamond_sound");
+                        prime.Reset();
+                        other.Reset();
+                        core.score += 666;
+
+                    }
+
+                    if (other.name === "player_bullet_update") {
+                        createjs.Sound.play("diamond_sound");
+                        prime.destroy();
+                        //prime.ResetFrameRate(newFrameRate);
+                        other.Reset();
+                        core.score += 999;
+
+                    }
+
+                    if (other.name === "friend_bullet") {
+                        createjs.Sound.play("diamond_sound");
+                        prime.destroy();
+                        //prime.ResetFrameRate(newFrameRate);
+                        other.Reset();
+                        core.score += 999;
+
+                    }
+
                 }
             }
             else {

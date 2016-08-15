@@ -14,9 +14,6 @@ var objects;
      */
     var Player = (function (_super) {
         __extends(Player, _super);
-        // PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++
-        //static isActivate: boolean = false;
-        // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++
         /**
          * Creates an instance of Island.
@@ -26,8 +23,51 @@ var objects;
          */
         function Player(imageString) {
             _super.call(this, imageString);
+            // PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++
+            //static isActivate: boolean = false;
+            // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++
+            this.numOfArmors = 3;
+            this.numOffriend = 3;
+            this._isArmorOn = false;
+            this._livesOfArmor = 2;
+            this._sheildDamage = false;
             this.start();
         }
+        Player.prototype.getValidity = function () {
+            return this._isArmorOn;
+        };
+        Player.prototype.armorOff = function () {
+            this._isArmorOn = false;
+        };
+        Player.prototype.armorOn = function () {
+            this._isArmorOn = true;
+        };
+        Player.prototype.getLivesOfArmor = function () {
+            if (this.armorOn()) {
+                return this._livesOfArmor;
+            }
+            else {
+                return 0;
+            }
+        };
+        Player.prototype.damage = function () {
+            return this.damageArmor();
+        };
+        Player.prototype.damageArmor = function () {
+            if (this._isArmorOn) {
+                if (this._livesOfArmor > 0) {
+                    this._livesOfArmor -= 1;
+                }
+                if (this._livesOfArmor === 0) {
+                    this.armorOff();
+                    this._sheildDamage = true;
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        };
         /**
         * This method checks if the object has reached its boundaries
         *
@@ -46,8 +86,8 @@ var objects;
                 this.x = (0 + (this.width * 0.5));
             }
             // check tob bounds
-            if (this.y <= (0 - (this.height * 0.5))) {
-                this.y = (0 - (this.height * 0.5));
+            if (this.y <= (100 - (this.height * 0.5))) {
+                this.y = (100 - (this.height * 0.5));
             }
             // check bottm bounds
             if (this.y >= (628 - (this.height * 0.5))) {
@@ -66,6 +106,8 @@ var objects;
         Player.prototype.start = function () {
             this.x = 50;
             this.y = 300;
+            this.position.x = this.x;
+            this.position.y = this.y;
         };
         /**
          * This method updates the object's properties
