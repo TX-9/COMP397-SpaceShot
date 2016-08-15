@@ -66,7 +66,7 @@ module managers {
                         createjs.Sound.play("diamond_sound");
                         prime.Reset();
                         other.Reset();
-                        core.score += 666;
+                        core.score += 300;
 
                     }
 
@@ -78,7 +78,7 @@ module managers {
                           prime.destroied(newFrameRate);
 
                         other.Reset();
-                        core.score += 999;
+                        core.score += 600;
 
                       }
                         
@@ -90,7 +90,7 @@ module managers {
                         prime.destroy();
                         //prime.ResetFrameRate(newFrameRate);
                         other.Reset();
-                        core.score += 999;
+                        core.score += 600;
 
                     }
 
