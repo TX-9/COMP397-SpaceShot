@@ -24,8 +24,8 @@ var core;
     var level1;
     var level2;
     var level3;
-    core.toLevel2 = 300;
-    core.toLevel3 = 1000;
+    core.toLevel2 = 500;
+    core.toLevel3 = 1500;
     var rule;
     // asset manifest for images and sounds
     var assetData = [
